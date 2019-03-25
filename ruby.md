@@ -1,5 +1,80 @@
+# Automated Testing with RSpec and Rails
+*W8D1*
+
+## Testing
+- regression due to lack of automated testing
+- prioritize testing on important aspects of business
+
+### Unit Testing
+- A unit is the smallest testable part of any software. It usually has one or a few inputs and usually a single output.
+- Each function might have multiple scenarios of testing
+- Not to be tested: private methods, aren't exposed to the outside world
+- *feature testing*, *end-to-end testing*, *integration testing*
+- *acceptance testing*: other parts of company (ui...)
+
+## Test-driven environment
+- *BDD testing*: Behavior-Driven Development
+- *cucumber* library for BDD testing
+- *code coverage*
+
+## let's code!
+- Add `rspec` to `Gemfile`
+- `bundle install` - you know the dealio
+- `rails g respec:model NAME`
+``` rb
+# rspec file
+describe '#active' do 
+    it 'returns false for upcoming sales' # example (test case), it -> the action '#active'
+        # Instantiate a sale 
+        sale = Sale.new(starts_on: 'April 10, 2019', ends_on: 'April 20, 2019', percent_off: 10, name: 'Spring sale')
+    
+    expect(sale.active?).to eq false
+
+    it 'returns true for active sales' 
+       sale = Sale.new(starts_on: 'April 4, 2019', ends_on: 'April 20, 2019', percent_off: 10, name: 'Spring sale')
+    expect(sale.active?).to eq true
+end
+```
+
+only run one test
+`bin/rspec spec/model/product_spec.rb:18`
+
+### *w5d5 activity - unit testing*
+
+# Nested Resources
+*W7D5*
+
+1. `Controller` 
+    
+    actions: 
+    - index 
+        - `@name = "Kanye`
+        - all passed to the index view
+    - new
+
+2. `View`
+    - `index.html.erb`
+    - has access to the action in controller
+
+3. `Model`
+    - `rails generate model name description image`
+        - generates migration and model
+        - Migration hasn't been run yet
+4. `db:migrate`
+    - create a table
+    - but nothing in it!
+
+5. `migrate/...create_memes`
+    - `string name`
+    - `string url`
+    - ...
+
+
+**Read Don's Lecture**
+
 # Rails Day 2
 *W7D4*
+
 
 ![](https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/mvc_detailed.png  "MVC")
 
