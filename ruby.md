@@ -1,3 +1,33 @@
+# Feature testing with RSpec and Rails
+*W8D2*
+`gem install capybara`
+`capybara/poltergeist` A PhantomJS driver for Capybara
+**headless** no GUI
+
+`vagrant` has a headless interface
+
+DEFAULT:
+Rspec => Capybara => Default (non-js)
+
+WE ARE DOING:
+Rspec => Capybara (API) 
+=> Potergeist (ruby driver for) 
+=> PhantomJS (npm)
+=> Headless Browser (!Chrome) 
+
+``` ruby
+feature do
+    scenario 'visiter sees products' do
+        visit '/'
+        within('main.container') do
+            expect(page).to have_text 'Products', count: 1
+        end
+    end
+end
+```
+
+don't forget to clean up! 
+
 # Automated Testing with RSpec and Rails
 *W8D1*
 
