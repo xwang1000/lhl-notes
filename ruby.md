@@ -26,6 +26,8 @@ feature do
 end
 ```
 
+`cypress.js` 
+
 don't forget to clean up! 
 
 # Automated Testing with RSpec and Rails
